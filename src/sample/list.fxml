@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="rootAnchorPane" xmlns:fx="http://javafx.com/fxml/" fx:controller="sample.Controller">
+   <children>
+      <Pane fx:id="listViewerGroup">
+         <children>
+            <ScrollPane fx:id="listScrollPane" fitToWidth="true" hbarPolicy="NEVER" layoutY="40" prefHeight="660" prefWidth="550" />
+            <ButtonBar centerShape="true" prefHeight="40.0">
+               <buttons>
+                  <Button fx:id="settingsButton" mnemonicParsing="false" text="Settings" />
+                  <ToggleButton mnemonicParsing="false" text="Style" />
+                  <Button fx:id="regButton" onAction="#handleButtonAction" text="Schedule" />
+                  <Button fx:id="addNewItemsButton" mnemonicParsing="false" onAction="#handleButtonAction" text="+">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Button>
+               </buttons>
+            </ButtonBar>
+         </children>
+      </Pane>
+      <Pane fx:id="listBuilderGroup" disable="true" visible="false">
+         <children>
+            <ListView fx:id="selectedListView" layoutX="0" layoutY="80" prefHeight="250" prefWidth="150.0" />
+            <Button fx:id="removeItemButton" layoutX="10" layoutY="340" onAction="#handleButtonAction" text="-" />
+            <TextArea fx:id="listTextArea" layoutX="155.0" layoutY="80.0" prefHeight="250.0" prefWidth="395" />
+            <DatePicker fx:id="datePicker" layoutX="116.0" layoutY="13.0" onAction="#onDatePickerValueChanged" />
+            <Button fx:id="saveButton" layoutX="550" layoutY="385.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Save" />
+            <ChoiceBox fx:id="priorityButton" layoutX="13.0" layoutY="382.0" prefHeight="31.0" prefWidth="110.0" value="low">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="low" />
+                     <String fx:value="medium" />
+                     <String fx:value="high" />
+                  </FXCollections>
+               </items>
+            </ChoiceBox>
+            <Button fx:id="closeListBuilderButton" mnemonicParsing="false" onAction="#handleButtonAction" text="X" />
+         </children>
+      </Pane>
+      <Pane fx:id="regularEventsGroup" disable="true" prefHeight="700.0" prefWidth="600.0" visible="false">
+         <children>
+            <ListView fx:id="regularEventsList" layoutX="27.0" layoutY="44.0" prefHeight="127.0" prefWidth="200.0" />
+            <TextField fx:id="regularEventInput" layoutX="238.0" layoutY="118.0" prefHeight="52.0" prefWidth="339.0" />
+            <VBox alignment="CENTER" layoutX="27.0" layoutY="237.0" prefHeight="200.0" prefWidth="550.0" spacing="15.0">
+               <children>
+                  <RadioButton mnemonicParsing="false" selected="true" text="Daily">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="repeatInterval" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="Weekly" toggleGroup="$repeatInterval" />
+                  <RadioButton mnemonicParsing="false" text="Monthly" toggleGroup="$repeatInterval" />
+                  <HBox fx:id="weeklyRegularEventsContainer" disable="true" prefHeight="141.0" prefWidth="166.0">
+                     <children>
+                        <CheckBox mnemonicParsing="false" text="Mon" />
+                        <CheckBox mnemonicParsing="false" text="Tue" />
+                        <CheckBox mnemonicParsing="false" text="Wed" />
+                        <CheckBox mnemonicParsing="false" text="Thu" />
+                        <CheckBox mnemonicParsing="false" text="Fri" />
+                        <CheckBox mnemonicParsing="false" text="Sat" />
+                        <CheckBox mnemonicParsing="false" text="Sun" />
+                     </children>
+                  </HBox>
+                  <HBox fx:id="monthlyRegularEventsContainer" disable="true" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="On the" />
+                        <ChoiceBox fx:id="monthlyRegularEventsChoiceBox" prefWidth="150.0" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="of each month" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Button fx:id="saveButtonReg" layoutX="543.0" layoutY="437.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Save" />
+            <Button fx:id="closeRegularEventsButton" mnemonicParsing="false" onAction="#handleButtonAction" text="X" />
+            <Button fx:id="removeRegularEventButton" layoutX="116.0" layoutY="181.0" mnemonicParsing="false" text="-" onAction="#handleButtonAction"/>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
