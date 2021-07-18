@@ -1,0 +1,11 @@
+.taskText {
+    -fx-font-size: 22px;
+}
+
+.mediumPriority {
+    -fx-background-color: #DDF;
+}
+
+.highPriority {
+    -fx-background-color: #FDD;
+}
