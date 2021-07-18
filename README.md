@@ -10,3 +10,5 @@ SQLite JDBC 3 (https://github.com/xerial/sqlite-jdbc/releases/tag/3.34.0)
 2. Open the folder in IntelliJ IDEA
 3. Set your JDK version as 1.8
 4. Add the SQLite JDBC 3 as a library under File > Project Structure > Libraries
+5. Create a new Application launch configuration, with sample.Main as the main class.
+6. Launch the application.
