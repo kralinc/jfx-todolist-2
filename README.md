@@ -1,5 +1,6 @@
 # jfx-todolist-2
-Successor to my previous to-do list application written in Java FX
+Successor to my previous to-do list application written in Java FX.
+This version has several major improvements over my previous version. This Todo List uses a SQLite database to store tasks instead of text files, which has completely removed all of the glitchy behavior from reading and writing new tasks. Tasks can be planned as far into the future as the computer will allow, and tasks can be regularly scheduled on daily, weekly, and monthly intervals. Additionally, all of the behavior takes place within a single window, rather than different functions opening new windows.
 
 # Requirements
 Oracle Java 8
